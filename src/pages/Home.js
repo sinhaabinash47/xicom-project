@@ -118,14 +118,14 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 ">
       <ToastContainer />
       <div className="text-center">
         <h1 className="text-12l font-bold">
           Create an Event Management System.
         </h1>
       </div>
-      <div>
+      <div className="border-2 p-4 rounded">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <div>
             <label htmlFor="event_name" className="text-base">
