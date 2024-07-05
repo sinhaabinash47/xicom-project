@@ -102,7 +102,9 @@ function App() {
       !ticket.ticketNo.trim() ||
       !ticket.price.trim()
     ) {
-      toast.error("All fields are required to update the ticket!", {autoClose: 1000});
+      toast.error("All fields are required to update the ticket!", {
+        autoClose: 1000,
+      });
       return;
     }
     setTicketData((prevTickets) => {
@@ -271,6 +273,7 @@ function App() {
             >
               {ticket.isEditable ? (
                 <Input
+                  type="number"
                   value={ticket.ticketId}
                   onChange={(e) =>
                     onchangeeditableticket(e.target.value, index, "ticketId")
@@ -282,6 +285,7 @@ function App() {
               )}
               {ticket.isEditable ? (
                 <Input
+                  type="number"
                   value={ticket.ticketNo}
                   onChange={(e) =>
                     onchangeeditableticket(e.target.value, index, "ticketNo")
@@ -293,6 +297,7 @@ function App() {
               )}
               {ticket.isEditable ? (
                 <Input
+                  type="number"
                   value={ticket.price}
                   onChange={(e) =>
                     onchangeeditableticket(e.target.value, index, "price")
