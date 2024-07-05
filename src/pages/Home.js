@@ -75,6 +75,7 @@ function App() {
     setTicketData((prevSelected) =>
       prevSelected.filter((option, index) => index !== idx)
     );
+    toast.success("Ticket Deleted successfully!", { autoClose: 1000 });
   };
 
   const editTicket = (index) => {
@@ -101,9 +102,7 @@ function App() {
       !ticket.ticketNo.trim() ||
       !ticket.price.trim()
     ) {
-      toast.error("All fields are required to update the ticket!", {
-        autoClose: 1000,
-      });
+      toast.error("All fields are required to update the ticket!", {autoClose: 1000});
       return;
     }
     setTicketData((prevTickets) => {
