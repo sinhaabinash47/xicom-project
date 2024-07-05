@@ -59,7 +59,7 @@ function App() {
   };
 
   const saveTicket = () => {
-    if (ticketNo.trim() && price.trim()) {
+    if (ticketId.trim() && ticketNo.trim() && price.trim()) {
       const newTicket = { ticketId, ticketNo, price, isEditable: false };
       setTicketData((prev) => [...prev, newTicket]);
       setTicketId("");
@@ -95,6 +95,17 @@ function App() {
   };
 
   const saveEditableTicket = (index) => {
+    const ticket = ticketData[index];
+    if (
+      !ticket.ticketId.trim() ||
+      !ticket.ticketNo.trim() ||
+      !ticket.price.trim()
+    ) {
+      toast.error("All fields are required to update the ticket!", {
+        autoClose: 1000,
+      });
+      return;
+    }
     setTicketData((prevTickets) => {
       const updatedTickets = [...prevTickets];
       updatedTickets[index].isEditable = false;
@@ -298,7 +309,7 @@ function App() {
                     onClick={() => saveEditableTicket(index)}
                     className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow text-sm w-32 mt-2"
                   >
-                    Save
+                    Update
                   </Button>
                 ) : (
                   <div>
